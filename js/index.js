@@ -3,6 +3,8 @@ var person = new Person();
 
 $(document).ready(function() {
   person.move();
+  person.generateEnemigo();
+  //person.drawFood();
   /*$("#start").on(click (){
     setInterval(person.move(), 100);
   }*/
@@ -10,19 +12,19 @@ $(document).ready(function() {
     switch (e.keyCode) {
       case 38: // arrow up
         person.goUp();
-        person.move()
+        person.move();
         break;
       case 40: // arrow down
         person.goDown();
-        person.move()
+        person.move();
         break;
       case 37: // arrow left
         person.goLeft();
-        person.move()
+        person.move();
         break;
       case 39: // arrow right
         person.goRight();
-        person.move()
+        person.move();
         break;
     }
   });
