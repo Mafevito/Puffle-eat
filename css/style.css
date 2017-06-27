@@ -1,0 +1,41 @@
+body {
+}
+
+.container {
+  /*background-image: url(../images/fondo.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;*/
+  background-color: #48FF45;
+  background-color: #D6DBE7;
+  max-width: 1000px;
+  height: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.person {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+.enemigo1, .enemigo2, .enemigo3 {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 200px;
+}
+
+.enemigo1 {
+  left: 0;
+}
+
+.enemigo2 {
+  left: 250px;
+}
+
+.enemigo3 {
+  left: 450px;
+}
