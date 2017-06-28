@@ -25,6 +25,9 @@ Person.prototype._isRightToTheLeftLimit = function(){
 Person.prototype.move = function(direction){
   this.verticalPosition = $('.person').position().top;
   this.horizontalPosition = $('.person').position().left;
+  var verticalComida = $('.food1').position().top;
+  var horizontalComida = $('.food1').position().left;
+  console.log(verticalComida, horizontalComida);
   switch(this.direction){
     case 'up':
     if ( this._isLowerUpLimit() ) {
@@ -54,6 +57,22 @@ Person.prototype.move = function(direction){
     }
       break;
   }
+
+  var llamadaColision = this.colision(200,150,20,this.horizontalPosition,this.verticalPosition,20);
+  if (llamadaColision) {
+    $('.food1').remove();
+  }
+};
+
+Person.prototype.colision = function(x1, y1, r1, x2, y2, r2) {
+  distaciaMinima = r1 + r2;
+  DistanciaEntreCentros = Math.sqrt(Math.pow((x2 - x1),2)+ Math.pow((y2 -y1),2));
+  if (Math.abs(DistanciaEntreCentros) <= Math.abs(distaciaMinima)){
+    return true;
+  }
+  else {
+    return false;
+  }
 };
 
 // Cambiar dirección
@@ -81,32 +100,10 @@ Person.prototype.goDown = function() {
   //}
 };
 
-
-// Agregar enemigos aleatorio
-Person.prototype.generateEnemigo = function() {
-  //var that = this;
-  var enemigos = setInterval(function(){
-  //that.direction;
-  var verticalEnemigo1 = Math.floor(Math.random() * 100);
-  var horizontalEnemigo1 = Math.floor(Math.random() * 100);
-  console.log(verticalEnemigo1, horizontalEnemigo1);
-  $('.enemigo1').css('top',verticalEnemigo1);
-  $('.enemigo1').css('left',horizontalEnemigo1);
-
-  var verticalEnemigo2 = Math.floor(Math.random() * 300);
-  var horizontalEnemigo2 = Math.floor(Math.random() * 300);
-  $('.enemigo2').css('top', verticalEnemigo2);
-  $('.enemigo2').css('left', horizontalEnemigo2);
-
-  var verticalEnemigo3 = Math.floor(Math.random() * 500);
-  var horizontalEnemigo3 = Math.floor(Math.random() * 500);
-  $('.enemigo3').css('top', verticalEnemigo3);
-  $('.enemigo3').css('left', horizontalEnemigo3);
-}, 4000);
- };
-
-
-
+Person.prototype.comer = function() {
+  if (this.verticalPosition > verticalComida) {
+  }
+};
 
 // Mover segun teclas
 // Person.prototype._assignControlsToKeys = function(){
@@ -127,5 +124,3 @@ Person.prototype.generateEnemigo = function() {
 //     }
 //   });
 // };
-
-// clearInterval -> parar algo

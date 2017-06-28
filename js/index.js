@@ -1,10 +1,12 @@
 //var board = new Board();
 var person = new Person();
+var board = new Board();
+var timer = new Timer();
 
 $(document).ready(function() {
   person.move();
-  person.generateEnemigo();
-  //person.drawFood();
+  board.generateEnemigo();
+  //board.generateFood();
   /*$("#start").on(click (){
     setInterval(person.move(), 100);
   }*/
