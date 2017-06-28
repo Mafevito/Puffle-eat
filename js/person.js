@@ -2,6 +2,8 @@ function Person (options) {
   this.direction = 'right';
   this.horizontalPosition;
   this.verticalPosition;
+  this.horizontalComida;
+  this.verticalComida
   // this._assignControlsToKeys()
 }
 
@@ -10,11 +12,11 @@ Person.prototype._isLowerUpLimit = function(){
 };
 
 Person.prototype._isLeftToTheRightLimit = function(){
-  return this.horizontalPosition < 460/*920*/;
+  return this.horizontalPosition < 720/*920*/;
 };
 
 Person.prototype._isUpperBottomLimit = function(){
-  return this.verticalPosition < 260/*520*/;
+  return this.verticalPosition < 520/*520*/;
 };
 
 Person.prototype._isRightToTheLeftLimit = function(){
@@ -25,9 +27,23 @@ Person.prototype._isRightToTheLeftLimit = function(){
 Person.prototype.move = function(direction){
   this.verticalPosition = $('.person').position().top;
   this.horizontalPosition = $('.person').position().left;
-  var verticalComida = $('.food1').position().top;
-  var horizontalComida = $('.food1').position().left;
-  console.log(verticalComida, horizontalComida);
+
+
+  this.verticalComida1 = $('.food1').position().top;
+  this.horizontalComida1 = $('.food1').position().left;
+  this.verticalComida2 = $('.food2').position().top;
+  this.horizontalComida2 = $('.food2').position().left;
+  this.verticalComida3 = $('.food3').position().top;
+  this.horizontalComida3 = $('.food3').position().left;
+  this.verticalComida4 = $('.food4').position().top;
+  this.horizontalComida4 = $('.food4').position().left;
+  this.verticalComida5 = $('.food5').position().top;
+  this.horizontalComida5 = $('.food5').position().left;
+  this.verticalComida5 = $('.food6').position().top;
+  this.horizontalComida5 = $('.food6').position().left;
+
+
+  console.log(this.verticalComida, this.horizontalComida);
   switch(this.direction){
     case 'up':
     if ( this._isLowerUpLimit() ) {
@@ -58,12 +74,38 @@ Person.prototype.move = function(direction){
       break;
   }
 
-  var llamadaColision = this.colision(200,150,20,this.horizontalPosition,this.verticalPosition,20);
-  if (llamadaColision) {
+  var llamadaColision1 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida1,this.verticalComida1,20);
+  if (llamadaColision1) {
     $('.food1').remove();
+  }
+
+  var llamadaColision2 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida2,this.verticalComida2,20);
+  if (llamadaColision2) {
+    $('.food2').remove();
+  }
+
+  var llamadaColision3 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida3,this.verticalComida3,20);
+  if (llamadaColision3) {
+    $('.food3').remove();
+  }
+
+  var llamadaColision4 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida4,this.verticalComida4,20);
+  if (llamadaColision4) {
+    $('.food4').remove();
+  }
+
+  var llamadaColision5 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida5,this.verticalComida5,20);
+  if (llamadaColision5) {
+    $('.food5').remove();
+  }
+
+  var llamadaColision6 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida6,this.verticalComida6,20);
+  if (llamadaColision6) {
+    $('.food6').remove();
   }
 };
 
+// Colision
 Person.prototype.colision = function(x1, y1, r1, x2, y2, r2) {
   distaciaMinima = r1 + r2;
   DistanciaEntreCentros = Math.sqrt(Math.pow((x2 - x1),2)+ Math.pow((y2 -y1),2));
@@ -98,11 +140,6 @@ Person.prototype.goDown = function() {
   //if (this.direction === 'left' || this.direction === 'right'){
     this.direction = 'down';
   //}
-};
-
-Person.prototype.comer = function() {
-  if (this.verticalPosition > verticalComida) {
-  }
 };
 
 // Mover segun teclas

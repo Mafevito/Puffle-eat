@@ -1,16 +1,21 @@
 body {
-  background: url(../images/backgroung2.png);
+  background: url(../images/background1.png);
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  /*background-color: #ffcc40;*/
 }
-
+section {
+  margin-top: 30px;
+}
 .container {
   /*background-color: #D9DEE9;*/
   width: 800px;
   height: 600px;
   position: relative;
   border-radius: 10px;
-  border: 5px solid #D9DEE9;
-  margin-top: 30px;
+  border: 5px dotted #d9dee9;/*#83C2F3;*/
   float: left;
+  background-color: rgba(217, 222, 233, 0.60);
   /*dashed*/
 }
 
@@ -18,7 +23,7 @@ body {
   width: 80px;
   height: 80px;
   position: absolute;
-  right: 0;
+  top: 0;
   left: 0;
 }
 
@@ -40,8 +45,11 @@ body {
   left: 370px;
 }
 
-.food1 {
-  left: 200px;
+.food1, .food2, .food3, .food4, .food5,
+.food6 {
+  height: 40px;
+  width: 40px;
+  left: 600px;
   top: 150px;
   position: absolute;
 }
@@ -51,6 +59,7 @@ body {
   /*background-color: #D9DEE9;*/
   float: right;
   margin-top: 30px;
+  color: #eee;
 }
 
 .tiempo > span {
@@ -65,9 +74,6 @@ body {
   font-size: 40px;
 }
 
-/*.tiempo-acabo {
-  border: 1px solid red;
-  height: 300px;
-  width: 600px;
-  margin: 0 auto;
-}*/
+.tiempo-acabo {
+  display: none;
+}

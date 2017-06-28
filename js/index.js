@@ -6,7 +6,7 @@ var timer = new Timer();
 $(document).ready(function() {
   person.move();
   board.generateEnemigo();
-  //board.generateFood();
+  board.generateFood();
   /*$("#start").on(click (){
     setInterval(person.move(), 100);
   }*/

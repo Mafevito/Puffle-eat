@@ -1,12 +1,9 @@
 function Board() {
-  //this.person = new Person();
 }
 
 // Agregar enemigos aleatorio
 Board.prototype.generateEnemigo = function() {
-  //var that = this;
   var enemigos = setInterval(function(){
-  //that.direction;
   var verticalEnemigo1 = Math.floor(Math.random() * 250);
   var horizontalEnemigo1 = Math.floor(Math.random() * 250);
   //console.log(verticalEnemigo1, horizontalEnemigo1);
@@ -22,15 +19,40 @@ Board.prototype.generateEnemigo = function() {
   var horizontalEnemigo3 = Math.floor(Math.random() * 250);
   $('.enemigo3').css('top', verticalEnemigo3);
   $('.enemigo3').css('left', horizontalEnemigo3);
- }, 8000);
+}, 4000);
 };
 
 // Generar comida
 Board.prototype.generateFood = function() {
-  var verticalComida = Math.floor(Math.random() * 100);
-  var horizontalComida = Math.floor(Math.random() * 100);
-  console.log(verticalComida,horizontalComida);
-  $('.food1').css('top', verticalComida);
-  $('.food1').css('left', horizontalComida);
-  //console.log(verticalComida, horizontalComida);
+  this.verticalComida1 = Math.floor(Math.random() * 300);
+  this.horizontalComida1 = Math.floor(Math.random() * 100);
+  $('.food1').css('top', this.verticalComida1);
+  $('.food1').css('left', this.horizontalComida1);
+
+
+  this.verticalComida2 = Math.floor(Math.random() * 350);
+  this.horizontalComida2 = Math.floor(Math.random() * 350);
+  $('.food2').css('top', this.verticalComida2);
+  $('.food2').css('left', this.horizontalComida2);
+
+
+  this.verticalComida3 = Math.floor(Math.random() * 400);
+  this.horizontalComida3 = Math.floor(Math.random() * 400);
+  $('.food3').css('top', this.verticalComida3);
+  $('.food3').css('left', this.horizontalComida3);
+
+  this.verticalComida4 = Math.floor(Math.random() * 450);
+  this.horizontalComida4 = Math.floor(Math.random() * 450);
+  $('.food4').css('top', this.verticalComida4);
+  $('.food4').css('left', this.horizontalComida4);
+
+  this.verticalComida5 = Math.floor(Math.random() * 400);
+  this.horizontalComida5 = Math.floor(Math.random() * 400);
+  $('.food5').css('top', this.verticalComida5);
+  $('.food5').css('left', this.horizontalComida5);
+
+  this.verticalComida6 = Math.floor(Math.random() * 500);
+  this.horizontalComida6 = Math.floor(Math.random() * 500);
+  $('.food6').css('top', this.verticalComida6);
+  $('.food6').css('left', this.horizontalComida6);
 };
