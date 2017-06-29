@@ -1,9 +1,7 @@
 function Person (options) {
   this.direction = 'right';
-  this.horizontalPosition;
   this.verticalPosition;
-  this.horizontalComida;
-  this.verticalComida
+  this.horizontalPosition;
   this.puntos = 0;
   // this._assignControlsToKeys()
 }
@@ -25,26 +23,26 @@ Person.prototype._isRightToTheLeftLimit = function(){
 };
 
 // Avanzar
-Person.prototype.move = function(direction){
+Person.prototype.move = function(direction, cookies){
   this.verticalPosition = $('.person').position().top;
   this.horizontalPosition = $('.person').position().left;
 
+  food1.verticalPosition = $('.food1').position().top;
+  food1.horizontalPosition = $('.food1').position().left;
+  food2.verticalPosition = $('.food2').position().top;
+  food2.horizontalPosition = $('.food2').position().left;
+  food3.verticalPosition = $('.food3').position().top;
+  food3.horizontalPosition = $('.food3').position().left;
+  food4.verticalPosition = $('.food4').position().top;
+  food4.horizontalPosition = $('.food4').position().left;
+  food5.verticalPosition = $('.food5').position().top;
+  food5.horizontalPosition= $('.food5').position().left;
+  food6.verticalPosition = $('.food6').position().top;
+  food6.horizontalPosition = $('.food6').position().left;
 
-  this.verticalComida1 = $('.food1').position().top;
-  this.horizontalComida1 = $('.food1').position().left;
-  this.verticalComida2 = $('.food2').position().top;
-  this.horizontalComida2 = $('.food2').position().left;
-  this.verticalComida3 = $('.food3').position().top;
-  this.horizontalComida3 = $('.food3').position().left;
-  this.verticalComida4 = $('.food4').position().top;
-  this.horizontalComida4 = $('.food4').position().left;
-  this.verticalComida5 = $('.food5').position().top;
-  this.horizontalComida5 = $('.food5').position().left;
-  this.verticalComida5 = $('.food6').position().top;
-  this.horizontalComida5 = $('.food6').position().left;
+  /*enemigo1.verticalPosition = $('.enemigo1').position().top;
+  enemigo1.horizontalPosition = $('.enemigo1').position().left;*/
 
-
-  console.log(this.verticalComida, this.horizontalComida);
   switch(this.direction){
     case 'up':
     if ( this._isLowerUpLimit() ) {
@@ -75,43 +73,47 @@ Person.prototype.move = function(direction){
       break;
   }
 
-  var llamadaColision1 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida1,this.verticalComida1,20);
+  var llamadaColision1 = this.colision(40,food1.horizontalPosition,food1.verticalPosition,20);
   if (llamadaColision1) {
-    $('.food1').remove();
+    $('.food1').css({'display':'none'});
     $('#puntos').html(this.puntos +=1);
-    person.move();
   }
 
-  var llamadaColision2 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida2,this.verticalComida2,20);
+  var llamadaColision2 = this.colision(40,food2.horizontalPosition,food2.verticalPosition,20);
   if (llamadaColision2) {
-    $('.food2').remove();
+    $('.food2').css({'display':'none'});
+    $('#puntos').html(this.puntos +=1);
   }
 
-  var llamadaColision3 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida3,this.verticalComida3,20);
+  var llamadaColision3 = this.colision(40,food3.horizontalPosition,food3.verticalPosition,20);
   if (llamadaColision3) {
-    $('.food3').remove();
+    $('.food3').css({'display':'none'});
+    $('#puntos').html(this.puntos +=1);
   }
 
-  var llamadaColision4 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida4,this.verticalComida4,20);
+  var llamadaColision4 = this.colision(40,food4.horizontalPosition,food4.verticalPosition,20);
   if (llamadaColision4) {
-    $('.food4').remove();
+    $('.food4').css({'display':'none'});
+    $('#puntos').html(this.puntos +=1);
   }
 
-  var llamadaColision5 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida5,this.verticalComida5,20);
+  var llamadaColision5 = this.colision(40,food5.horizontalPosition,food5.verticalPosition,20);
   if (llamadaColision5) {
-    $('.food5').remove();
+    $('.food5').css({'display':'none'});
+    $('#puntos').html(this.puntos +=1);
   }
 
-  var llamadaColision6 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida6,this.verticalComida6,20);
+  var llamadaColision6 = this.colision(40,food6.horizontalPosition,food6.verticalPosition,20);
   if (llamadaColision6) {
-    $('.food6').remove();
+    $('.food6').css({'display':'none'});
+    $('#puntos').html(this.puntos +=1);
   }
 };
 
 // Colision
-Person.prototype.colision = function(x1, y1, r1, x2, y2, r2) {
+Person.prototype.colision = function(r1, x2, y2, r2) {
   distaciaMinima = r1 + r2;
-  DistanciaEntreCentros = Math.sqrt(Math.pow((x2 - x1),2)+ Math.pow((y2 -y1),2));
+  DistanciaEntreCentros = Math.sqrt(Math.pow((x2 - this.horizontalPosition),2)+ Math.pow((y2 -this.verticalPosition),2));
   if (Math.abs(DistanciaEntreCentros) <= Math.abs(distaciaMinima)){
     return true;
   }
@@ -122,27 +124,19 @@ Person.prototype.colision = function(x1, y1, r1, x2, y2, r2) {
 
 // Cambiar dirección
 Person.prototype.goLeft = function() {
-  //if (this.direction === 'up' || this.direction === 'down'){
     this.direction = 'left';
-  //}
 };
 
 Person.prototype.goRight = function() {
-  //if (this.direction === 'up' || this.direction === 'down'){
     this.direction = 'right';
-  //}
 };
 
 Person.prototype.goUp = function() {
-  //if (this.direction === 'left' || this.direction === 'right'){
     this.direction = 'up';
-  //}
 };
 
 Person.prototype.goDown = function() {
-  //if (this.direction === 'left' || this.direction === 'right'){
     this.direction = 'down';
-  //}
 };
 
 // Mover segun teclas
