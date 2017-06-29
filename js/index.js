@@ -1,15 +1,12 @@
-//var board = new Board();
-var person = new Person();
 var board = new Board();
+var person = new Person();
 var timer = new Timer();
 
 $(document).ready(function() {
   person.move();
   board.generateEnemigo();
   board.generateFood();
-  /*$("#start").on(click (){
-    setInterval(person.move(), 100);
-  }*/
+
   $('body').on('keydown', function(e) {
     switch (e.keyCode) {
       case 38: // arrow up

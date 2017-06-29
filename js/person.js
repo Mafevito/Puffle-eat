@@ -4,6 +4,7 @@ function Person (options) {
   this.verticalPosition;
   this.horizontalComida;
   this.verticalComida
+  this.puntos = 0;
   // this._assignControlsToKeys()
 }
 
@@ -77,6 +78,8 @@ Person.prototype.move = function(direction){
   var llamadaColision1 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida1,this.verticalComida1,20);
   if (llamadaColision1) {
     $('.food1').remove();
+    $('#puntos').html(this.puntos +=1);
+    person.move();
   }
 
   var llamadaColision2 = this.colision(this.horizontalPosition,this.verticalPosition,40,this.horizontalComida2,this.verticalComida2,20);
