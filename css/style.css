@@ -19,12 +19,19 @@ section {
   background-color: rgba(217, 222, 233, 0.60);
 }
 
-.person {
+.person1 {
   width: 80px;
   height: 80px;
   position: absolute;
   top: 0;
   left: 0;
+}
+.person2 {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: 520px;
+  left: 720px;
 }
 
 .enemigo1, .enemigo2, .enemigo3 {
@@ -48,7 +55,7 @@ section {
 }
 
 .food1, .food2, .food3, .food4, .food5,
-.food6 {
+.food6, .food7, .food8, .food9, .food10 {
   height: 40px;
   width: 40px;
   left: 600px;
@@ -64,19 +71,27 @@ section {
   color: #eee;
 }
 
+.tiempo {
+  margin-bottom: 40px;
+}
+
 .tiempo > span {
   text-align: left;
   margin: 5px;
   font-size: 40px;
 }
 
-.puntos > span {
+.puntos, .puntos1, .puntos2 {
   text-align: left;
   margin: 5px;
-  font-size: 40px;
+  font-size: 38px;
 }
 
 .tiempo-acabo {
   display: none;
   margin: 0 auto;
+  width: 1000px;
+  height: 600px;
+  margin-left: -340px;
+  position: absolute;
 }
