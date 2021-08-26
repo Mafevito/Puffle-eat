@@ -13,4 +13,4 @@ Puffle Eat es un juego que consiste en ver quien come más galletas.
 
 ### Screenshots
 
-![Screenshot turbo converter app](https://github.com/Mafevito/Puffle-eat/master/assets/images/Screenshot-puffle-eat.png?raw=true)
+![Screenshot puffle eat](https://github.com/Mafevito/Puffle-eat/blob/master/assets/images/Screenshot-puffle-eat.png?raw=true)
